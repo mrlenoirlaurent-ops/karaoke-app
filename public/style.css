@@ -110,7 +110,7 @@ h1 {
 #lyrics {
   white-space: pre-wrap;
   font-size: 3.4rem;
-  line-height: 4.5rem;
+  line-height: 8rem;
   background: #1f2937;
   padding: 34px;
   border-radius: 22px;
@@ -120,6 +120,7 @@ h1 {
   max-width: 1700px;
   width: 95%;
   margin: 24px auto;
+  min-height: 80vh;
 }
 
 #backBtn {
