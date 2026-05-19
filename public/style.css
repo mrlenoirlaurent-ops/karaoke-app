@@ -382,3 +382,17 @@ body.projector-lowres #fullscreenBtn {
   padding: 10px 16px;
   font-size: 1rem;
 }
+#lyricsPage {
+  position: relative;
+}
+
+#lyricsHeader {
+  position: sticky;
+  top: 0;
+  z-index: 2000;
+
+  background: rgba(17, 24, 39, 0.96);
+  backdrop-filter: blur(10px);
+
+  padding: 10px 0 20px;
+}
