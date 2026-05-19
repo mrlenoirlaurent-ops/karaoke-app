@@ -1,0 +1,344 @@
+body {
+  background: #111827;
+  color: white;
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 24px;
+}
+
+h1 {
+  text-align: center;
+  font-size: 4.4rem;
+  margin-bottom: 20px;
+}
+
+#search {
+  width: 100%;
+  max-width: 800px;
+  display: block;
+  margin: 20px auto 30px;
+  padding: 16px;
+  border-radius: 14px;
+  border: none;
+  font-size: 2.2rem;
+}
+
+.hidden {
+  display: none;
+}
+
+/* TABLE DES MATIÈRES */
+
+.toc-section {
+  background: #1f2937;
+  color: white;
+  padding: 22px;
+  border-radius: 18px;
+  margin: 25px auto;
+  max-width: 1100px;
+}
+
+.toc-section h2 {
+  text-align: center;
+  margin-top: 0;
+  font-size: 2rem;
+}
+
+.toc-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 1.8rem;
+}
+
+.toc-table th {
+  background: #374151;
+  color: white;
+  padding: 12px;
+}
+
+.toc-table td {
+  border-bottom: 1px solid #374151;
+  padding: 12px;
+}
+
+.toc-table tr:hover td {
+  background: #374151;
+}
+
+.toc-table td:first-child {
+  text-align: center;
+  font-weight: bold;
+  width: 60px;
+  color: #93c5fd;
+}
+
+.toc-link {
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+  font-size: 2rem;
+  text-align: left;
+  width: 100%;
+}
+
+.toc-link span {
+  color: #9ca3af;
+  font-size: 1.5rem;
+}
+
+/* PAGE PAROLES */
+
+#lyricsPage {
+  max-width: 950px;
+  margin: auto;
+  text-align: center;
+}
+
+#songTitle {
+  font-size: 3rem;
+  margin-bottom: 5px;
+}
+
+#songArtist {
+  font-size: 1.3rem;
+  color: #9ca3af;
+  margin-top: 0;
+}
+
+#lyrics {
+  white-space: pre-wrap;
+  font-size: 2.8rem;
+  line-height: 4.5rem;
+  background: #1f2937;
+  padding: 34px;
+  border-radius: 22px;
+  margin-top: 24px;
+  text-align: center;
+  overflow-y: auto;
+}
+
+#backBtn {
+  background: #2563eb;
+  color: white;
+  border: none;
+  padding: 14px 24px;
+  border-radius: 12px;
+  margin-bottom: 20px;
+  cursor: pointer;
+  font-size: 1.1rem;
+}
+
+#backBtn:hover {
+  background: #1d4ed8;
+}
+
+/* SMARTPHONE */
+
+@media (max-width: 700px) {
+  body {
+    padding: 12px;
+  }
+
+  h1 {
+    font-size: 1.8rem;
+  }
+
+  #search {
+    font-size: 1rem;
+    padding: 14px;
+    margin-bottom: 20px;
+  }
+
+  .toc-section {
+    padding: 12px;
+    border-radius: 14px;
+  }
+
+  .toc-section h2 {
+    font-size: 1.4rem;
+  }
+
+  .toc-table {
+    font-size: 0.9rem;
+  }
+
+  .toc-table th {
+    padding: 8px;
+  }
+
+  .toc-table td {
+    padding: 10px 6px;
+  }
+
+  .toc-table td:first-child {
+    width: 42px;
+  }
+
+  .toc-link {
+    font-size: 0.95rem;
+  }
+
+  #songTitle {
+    font-size: 1.7rem;
+  }
+
+  #songArtist {
+    font-size: 1.1rem;
+  }
+
+  #lyrics {
+    font-size: 1.35rem;
+    line-height: 2.1rem;
+    padding: 20px 14px;
+    border-radius: 16px;
+    text-align: center;
+  }
+
+  #backBtn {
+    width: 100%;
+    font-size: 1rem;
+  }
+}
+
+/* TRÈS PETITS ÉCRANS */
+
+@media (max-width: 420px) {
+  #lyrics {
+    font-size: 1.25rem;
+    line-height: 2rem;
+  }
+
+  .toc-link {
+    font-size: 0.9rem;
+  }
+}
+html,
+body {
+  height: auto;
+  min-height: 100%;
+  overflow-y: auto;
+}
+
+#lyricsPage {
+  overflow: visible;
+}
+
+#lyrics {
+  max-height: none;
+  overflow: visible;
+}
+html, body {
+  overflow-y: scroll !important;
+  height: auto !important;
+}
+
+body {
+  min-height: 200vh;
+}
+
+#lyricsPage {
+  display: block;
+  min-height: 200vh;
+}
+
+#lyrics {
+  white-space: pre-wrap;
+  font-size: 2.3rem;
+  line-height: 2.6rem;
+  background: #1f2937;
+
+  padding: 34px;
+  border-radius: 22px;
+
+  margin-top: 24px;
+
+  text-align: center;
+
+  height: calc(100vh - 260px);
+
+  overflow-y: auto;
+}
+
+#topBar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+  flex-wrap: wrap;
+
+  padding: 10px;
+  background: rgba(17, 24, 39, 0.95);
+  backdrop-filter: blur(10px);
+}
+
+#fullscreenBtn {
+  background: #16a34a;
+  color: white;
+  border: none;
+  padding: 14px 22px;
+  border-radius: 12px;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+#fullscreenBtn:hover {
+  background: #15803d;
+}
+#topBar button {
+  border: none;
+  padding: 12px 18px;
+  border-radius: 12px;
+  cursor: pointer;
+  color: white;
+  font-size: 1rem;
+}
+
+#scrollSlow {
+  background: #2563eb;
+}
+
+#scrollMedium {
+  background: #7c3aed;
+}
+
+#scrollFast {
+  background: #dc2626;
+}
+
+#scrollStop {
+  background: #374151;
+}
+html,
+body {
+  overflow-y: auto !important;
+  height: auto !important;
+}
+.refrain {
+
+  color: #facc15;
+
+  font-weight: bold;
+
+  font-size: 1.15em;
+
+  background: rgba(250, 204, 21, 0.12);
+
+  border: 2px solid rgba(250, 204, 21, 0.5);
+
+  border-radius: 22px;
+
+  padding: 22px;
+
+  margin: 32px auto;
+
+  max-width: 92%;
+
+  box-shadow: 0 0 18px rgba(250, 204, 21, 0.18);
+
+}
