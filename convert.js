@@ -1,6 +1,6 @@
 const fs = require('fs');
 
-const raw = fs.readFileSync('chansons.txt', 'latin1');
+const raw = fs.readFileSync('chansons.txt', 'utf8');
 
 const knownArtists = [
   'Claude Francois', 'Claude François', 'Téléphone', 'Telephone', 'M.Berger',
