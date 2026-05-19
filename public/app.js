@@ -164,9 +164,9 @@ lyrics.innerHTML = formattedLyrics;
       };
     }
 
-    scrollSlow.onclick = () => startScroll(1, 50);
-    scrollMedium.onclick = () => startScroll(1, 30);
-    scrollFast.onclick = () => startScroll(1, 10);
+    scrollSlow.onclick = () => startScroll(1, 70);
+    scrollMedium.onclick = () => startScroll(1, 45);
+    scrollFast.onclick = () => startScroll(1, 25);
     scrollStop.onclick = stopScroll;
 
     displaySongs(songs);
