@@ -55,6 +55,10 @@ function stopScroll() {
 
     function showSongs() {
       stopScroll();
+
+      // AJOUT : On retire le mode karaoké pour retrouver le scroll normal de la liste
+      document.body.classList.remove('mode-karaoke');
+      
       container.style.display = 'block';
       search.style.display = 'block';
       lyricsPage.classList.add('hidden');
@@ -64,6 +68,9 @@ function stopScroll() {
     function showLyrics(song) {
       stopScroll();
 
+      // AJOUT : On active le mode karaoké pour bloquer le scroll du PC/vidéoprojecteur
+      document.body.classList.add('mode-karaoke');
+      
       container.style.display = 'none';
       search.style.display = 'none';
       lyricsPage.classList.remove('hidden');
