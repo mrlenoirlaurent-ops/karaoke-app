@@ -428,3 +428,27 @@ body.mode-karaoke #lyrics {
     padding: 20px !important;
     box-sizing: border-box !important;
 }
+/* S'active uniquement pendant la chanson */
+body.mode-karaoke {
+    margin: 0 !important;
+    padding: 0 !important;
+    height: 100vh !important;
+    max-height: 100vh !important;
+    overflow: hidden !important;
+    display: flex !important;
+    flex-direction: column !important;
+}
+
+/* Ajuste le rectangle des paroles pour le PC et le vidéoprojecteur */
+body.mode-karaoke #lyrics {
+    width: 95% !important;        
+    max-width: 1300px !important; 
+    margin: 10px auto !important; 
+    
+    flex: 1 !important;           /* Hauteur magique automatique */
+    min-height: 0 !important; 
+    
+    overflow-y: auto !important;  /* Seul ce bloc a le droit de scroller */
+    padding: 20px !important;
+    box-sizing: border-box !important;
+}
