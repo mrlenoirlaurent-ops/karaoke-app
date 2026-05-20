@@ -150,7 +150,7 @@ h1 {
     font-size: 1.8rem;
   }
 
-  /* --- AJOUT : Nettoyage du scroll infini sur smartphone --- */
+  /* --- LE NETTOYAGE RADICAL DU SCROLL MOBILE --- */
   html, body {
     overflow-y: auto !important;
     height: auto !important;
@@ -158,19 +158,31 @@ h1 {
     min-height: 100vh !important;
   }
 
-  body.mode-karaoke {
-    display: block !important; /* Annule le comportement PC */
+  /* On force le conteneur principal de la page de chant à s'arrêter pile à la fin de son contenu */
+  #lyricsPage {
+    height: auto !important;
+    max-height: none !important;
+    min-height: 0 !important;
+    padding-bottom: 20px !important;
+    overflow: visible !important;
   }
 
-  /* ASTUCE : On cache de force les éléments de la liste qui traînent en bas */
+  body.mode-karaoke {
+    display: block !important; 
+    height: auto !important;
+  }
+
+  /* On supprime de l'espace tout ce qui appartient à la page d'accueil */
   body.mode-karaoke .container, 
-  body.mode-karaoke #search {
+  body.mode-karaoke #search,
+  body.mode-karaoke footer, 
+  body.mode-karaoke .footer { 
     display: none !important;
     height: 0 !important;
     margin: 0 !important;
     padding: 0 !important;
+    visibility: hidden !important;
   }
-
   #search {
     font-size: 1rem;
     padding: 14px;
