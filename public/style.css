@@ -597,16 +597,15 @@ body.mode-karaoke #lyrics {
         padding: 15px !important;
     }
 }
-/* --- NETTOYAGE CIBLÉ ET SÉCURISÉ --- */
+/* --- NETTOYAGE CIBLÉ DE L'ACCUEIL --- */
 
-/* On cache UNIQUEMENT le gros titre principal du site (ex: "Karaoké") quand on chante */
-body.mode-karaoke h1 {
+/* On cache UNIQUEMENT le gros titre principal du site quand on chante */
+body.mode-karaoke > h1 {
     display: none !important;
 }
 
-/* On s'assure que la page des paroles affiche bien TOUT son contenu (titres, boutons, etc.) */
-#lyricsPage, #lyricsPage * {
-    display: inherit;
+/* On s'assure juste que le bouton Retour reste bien visible sans casser le reste */
+body.mode-karaoke #backBtn {
+    display: inline-block !important;
     visibility: visible !important;
-    opacity: 1 !important;
 }
