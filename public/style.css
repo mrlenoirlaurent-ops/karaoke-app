@@ -404,3 +404,19 @@ body.projector-lowres #fullscreenBtn {
   backdrop-filter: blur(10px);
   padding: 10px 0 16px;
 }
+/* 1. On bloque le scroll de la page entière */
+body {
+    margin: 0;
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+/* 2. On force la boîte de paroles à prendre toute la place et à scroller proprement */
+#lyrics {
+    flex: 1;
+    overflow-y: auto;
+    min-height: 0;
+    padding-bottom: 40px; /* Petit espace en bas pour ne pas coller au bord */
+}
