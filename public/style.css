@@ -141,12 +141,34 @@ h1 {
 /* SMARTPHONE */
 
 @media (max-width: 700px) {
+  /* --- TES RÉGLAGES EXISTANTS DE TAILLE DE PAGE --- */
   body {
     padding: 12px;
   }
 
   h1 {
     font-size: 1.8rem;
+  }
+
+  /* --- AJOUT : Nettoyage du scroll infini sur smartphone --- */
+  html, body {
+    overflow-y: auto !important;
+    height: auto !important;
+    max-height: none !important;
+    min-height: 100vh !important;
+  }
+
+  body.mode-karaoke {
+    display: block !important; /* Annule le comportement PC */
+  }
+
+  /* ASTUCE : On cache de force les éléments de la liste qui traînent en bas */
+  body.mode-karaoke .container, 
+  body.mode-karaoke #search {
+    display: none !important;
+    height: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
   }
 
   #search {
