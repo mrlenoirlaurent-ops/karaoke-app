@@ -140,8 +140,36 @@ h1 {
 
 /* SMARTPHONE */
 
+/* ==========================================
+   DESIGN POUR LES GRANDS ÉCRANS (PC & VIDÉOPROJECTEUR)
+   ========================================== */
+@media (min-width: 769px) {
+    body.mode-karaoke {
+        margin: 0 !important;
+        padding: 0 !important;
+        height: 100vh !important;
+        max-height: 100vh !important;
+        overflow: hidden !important; /* Bloque le scroll global tout à droite */
+        display: flex !important;
+        flex-direction: column !important;
+    }
+
+    body.mode-karaoke #lyrics {
+        width: 95% !important;        /* FORCE la boîte à prendre toute la largeur PC */
+        max-width: 1300px !important; 
+        margin: 10px auto !important; 
+        flex: 1 !important;           /* Calcule la hauteur pour ne pas dépasser en bas */
+        min-height: 0 !important; 
+        overflow-y: auto !important;  /* Active le scroll propre uniquement ici */
+        padding: 20px !important;
+        box-sizing: border-box !important;
+    }
+}
+
+/* ==========================================
+   DESIGN POUR LES SMARTPHONES (Ton ancien bloc modifié)
+   ========================================== */
 @media (max-width: 700px) {
-  /* --- TES RÉGLAGES EXISTANTS DE TAILLE DE PAGE --- */
   body {
     padding: 12px;
   }
@@ -150,7 +178,7 @@ h1 {
     font-size: 1.8rem;
   }
 
-  /* --- LE NETTOYAGE RADICAL DU SCROLL MOBILE --- */
+  /* Correctif scroll infini smartphone */
   html, body {
     overflow-y: auto !important;
     height: auto !important;
@@ -158,7 +186,6 @@ h1 {
     min-height: 100vh !important;
   }
 
-  /* On force le conteneur principal de la page de chant à s'arrêter pile à la fin de son contenu */
   #lyricsPage {
     height: auto !important;
     max-height: none !important;
@@ -172,7 +199,6 @@ h1 {
     height: auto !important;
   }
 
-  /* On supprime de l'espace tout ce qui appartient à la page d'accueil */
   body.mode-karaoke .container, 
   body.mode-karaoke #search,
   body.mode-karaoke footer, 
@@ -183,6 +209,70 @@ h1 {
     padding: 0 !important;
     visibility: hidden !important;
   }
+
+  #search {
+    font-size: 1rem;
+    padding: 14px;
+    margin-bottom: 20px;
+  }
+
+  .toc-section {
+    padding: 12px;
+    border-radius: 14px;
+  }
+
+  .toc-section h2 {
+    font-size: 1.4rem;
+  }
+
+  .toc-table {
+    font-size: 0.9rem;
+  }
+
+  .toc-table th {
+    padding: 8px;
+  }
+
+  .toc-table td {
+    padding: 10px 6px;
+  }
+
+  .toc-table td:first-child {
+    width: 42px;
+  }
+
+  .toc-link {
+    font-size: 0.95rem;
+  }
+
+  #songTitle {
+    font-size: 1.7rem;
+  }
+
+  #songArtist {
+    font-size: 1.1rem;
+  }
+
+  #lyrics {
+    font-size: 2.5rem;
+    line-height: 3.5rem;
+    padding: 20px 14px !important;
+    border-radius: 16px;
+    text-align: center;
+    
+    width: 100% !important;      
+    height: auto !important;     
+    max-height: none !important;
+    overflow-y: visible !important; 
+    margin: 10px 0 0 0 !important;
+    box-sizing: border-box !important;
+  }
+
+  #backBtn {
+    width: 100%;
+    font-size: 1rem;
+  }
+  
   #search {
     font-size: 1rem;
     padding: 14px;
