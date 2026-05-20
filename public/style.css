@@ -404,31 +404,27 @@ body.projector-lowres #fullscreenBtn {
   backdrop-filter: blur(10px);
   padding: 10px 0 16px;
 }
-/* S'active UNIQUEMENT sur l'écran du Karaoké */
-body:has(#lyrics) {
+/* 1. Cette règle ne s'appliquera QUE si la page a la classe 'mode-karaoke' */
+body.mode-karaoke {
     margin: 0 !important;
     padding: 0 !important;
     height: 100vh !important;
     max-height: 100vh !important;
-    overflow: hidden !important;
-    
-    /* Magie du Flexbox : on force le body à se comporter comme une colonne */
+    overflow: hidden !important; /* Bloque le scroll de droite */
     display: flex !important;
     flex-direction: column !important;
 }
 
-/* On ajuste la boîte de paroles #lyrics */
-#lyrics {
-    width: 95% !important;        
+/* 2. On applique les réglages à la boîte de paroles */
+body.mode-karaoke #lyrics {
+    width: 95% !important;        /* Grande largeur sur PC et vidéoprojecteur */
     max-width: 1300px !important; 
     margin: 10px auto !important; 
     
-    /* Changement ICI : le Flexbox calcule TOUT SEUL la hauteur restante, */
-    /* peu importe la taille du vidéoprojecteur ou des boutons du haut ! */
-    flex: 1 !important; 
+    flex: 1 !important;           /* Prend toute la hauteur restante automatiquement */
     min-height: 0 !important; 
     
-    overflow-y: auto !important;  
+    overflow-y: auto !important;  /* Active le scroll UNIQUEMENT ici */
     padding: 20px !important;
     box-sizing: border-box !important;
 }
