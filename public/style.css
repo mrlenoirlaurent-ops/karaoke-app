@@ -597,12 +597,21 @@ body.mode-karaoke #lyrics {
         padding: 15px !important;
     }
 }
-/* --- NETTOYAGE SÉCURISÉ DES ÉLÉMENTS FANTÔMES --- */
+/* --- NETTOYAGE DES ÉLÉMENTS FANTÔMES EN MODE KARAOKÉ --- */
 
-/* On cache UNIQUEMENT le grand titre de la page d'accueil quand on chante */
-body.mode-karaoke > h1 {
+/* 1. On cache les gros titres de la page d'accueil qui restent en fond */
+body.mode-karaoke > h1, 
+body.mode-karaoke > h2, 
+body.mode-karaoke > p {
     display: none !important;
 }
 
-/* Si tu as un sous-titre ou un texte d'accueil tout en haut du site, on le cache aussi */
-body.mode-
+/* 2. SÉCURITÉ ABSOLUE : On force l'affichage du bouton Retour et des contrôles */
+#backBtn, 
+.controls, 
+#lyricsPage button, 
+#lyricsPage h2 {
+    display: inline-block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+}
