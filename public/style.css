@@ -585,27 +585,42 @@ body.mode-karaoke #lyrics {
    ========================================== */
 @media (max-width: 768px) {
     body.mode-karaoke {
-        overflow-y: auto !important; /* On autorise le scroll normal avec le pouce */
+        display: block !important;
+        height: auto !important;
+    }
+
+    /* Supprime le scroll infini et autorise le défilement normal au pouce */
+    html, body {
+        overflow-y: auto !important;
         height: auto !important;
         max-height: none !important;
+        min-height: 100vh !important;
     }
 
+    /* Empêche la page de chant de créer du vide en bas */
+    #lyricsPage {
+        height: auto !important;
+        max-height: none !important;
+        min-height: 0 !important;
+        padding-bottom: 30px !important;
+    }
+
+    /* La boîte des paroles prend toute la largeur du smartphone et s'allonge verticalement */
     body.mode-karaoke #lyrics {
-        width: 100% !important;      /* Prend toute la largeur du téléphone */
-        height: auto !important;     /* S'allonge autant que nécessaire vers le bas */
-        overflow-y: visible !important; /* Supprime le scroll interne carrément gênant */
-        padding: 15px !important;
+        width: 100% !important;      
+        height: auto !important;     
+        max-height: none !important;
+        overflow-y: visible !important; 
+        margin-top: 15px !important;
+        box-sizing: border-box !important;
     }
-}
-/* --- NETTOYAGE CIBLÉ DE L'ACCUEIL --- */
 
-/* On cache UNIQUEMENT le gros titre principal du site quand on chante */
-body.mode-karaoke > h1 {
-    display: none !important;
-}
-
-/* On s'assure juste que le bouton Retour reste bien visible sans casser le reste */
-body.mode-karaoke #backBtn {
-    display: inline-block !important;
-    visibility: visible !important;
+    /* Nettoie et masque de force les éléments de l'accueil cachés pour éviter l'espace vide fantôme */
+    body.mode-karaoke .container, 
+    body.mode-karaoke #search {
+        display: none !important;
+        height: 0 !important;
+        margin: 0 !important;
+        padding: 0 !important;
+    }
 }
