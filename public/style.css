@@ -420,3 +420,21 @@ body {
     min-height: 0;
     padding-bottom: 40px; /* Petit espace en bas pour ne pas coller au bord */
 }
+html, body {
+    margin: 0 !important;
+    padding: 0 !important;
+    height: 100vh !important; /* 100vh = 100% de la hauteur de l'écran */
+    max-height: 100vh !important;
+    overflow: hidden !important; /* Supprime le scrollbar de droite */
+}
+#lyrics {
+    width: 90% !important;        /* Élargit la case */
+    max-width: 1200px !important; /* Sécurité pour les écrans géants */
+    margin: 10px auto !important; /* Centre la case sur l'écran */
+    
+    height: calc(100vh - 180px) !important; /* S'arrête pile avant le bas de l'écran */
+    overflow-y: auto !important;  /* Active le scroll UNIQUEMENT dans les paroles */
+    
+    padding: 20px !important;
+    box-sizing: border-box !important;
+}
