@@ -428,27 +428,48 @@ body.mode-karaoke #lyrics {
     padding: 20px !important;
     box-sizing: border-box !important;
 }
-/* S'active uniquement pendant la chanson */
-body.mode-karaoke {
-    margin: 0 !important;
-    padding: 0 !important;
-    height: 100vh !important;
-    max-height: 100vh !important;
-    overflow: hidden !important;
-    display: flex !important;
-    flex-direction: column !important;
+/* ==========================================
+   DESIGN POUR LES GRANDS ÉCRANS (PC & VIDÉOPROJECTEUR)
+   S'applique uniquement si l'écran fait plus de 768px de large
+   ========================================== */
+@media (min-width: 769px) {
+    body.mode-karaoke {
+        margin: 0 !important;
+        padding: 0 !important;
+        height: 100vh !important;
+        max-height: 100vh !important;
+        overflow: hidden !important; /* Bloque le scroll de droite sur PC */
+        display: flex !important;
+        flex-direction: column !important;
+    }
+
+    body.mode-karaoke #lyrics {
+        width: 95% !important;        
+        max-width: 1300px !important; 
+        margin: 10px auto !important; 
+        flex: 1 !important;           /* Hauteur automatique sur PC */
+        min-height: 0 !important; 
+        overflow-y: auto !important;  /* Le scroll interne n'existe que sur PC */
+        padding: 20px !important;
+        box-sizing: border-box !important;
+    }
 }
 
-/* Ajuste le rectangle des paroles pour le PC et le vidéoprojecteur */
-body.mode-karaoke #lyrics {
-    width: 95% !important;        
-    max-width: 1300px !important; 
-    margin: 10px auto !important; 
-    
-    flex: 1 !important;           /* Hauteur magique automatique */
-    min-height: 0 !important; 
-    
-    overflow-y: auto !important;  /* Seul ce bloc a le droit de scroller */
-    padding: 20px !important;
-    box-sizing: border-box !important;
+/* ==========================================
+   DESIGN POUR LES SMARTPHONES
+   S'applique uniquement si l'écran est petit (768px ou moins)
+   ========================================== */
+@media (max-width: 768px) {
+    body.mode-karaoke {
+        overflow-y: auto !important; /* On autorise le scroll normal avec le pouce */
+        height: auto !important;
+        max-height: none !important;
+    }
+
+    body.mode-karaoke #lyrics {
+        width: 100% !important;      /* Prend toute la largeur du téléphone */
+        height: auto !important;     /* S'allonge autant que nécessaire vers le bas */
+        overflow-y: visible !important; /* Supprime le scroll interne carrément gênant */
+        padding: 15px !important;
+    }
 }
