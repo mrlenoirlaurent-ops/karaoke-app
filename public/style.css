@@ -200,7 +200,6 @@ h1 {
     font-size: 1rem;
   }
 }
-
 /* TRÈS PETITS ÉCRANS */
 
 @media (max-width: 420px) {
@@ -212,73 +211,82 @@ h1 {
   .toc-link {
     font-size: 0.9rem;
   }
-}
-html,
-body {
-  height: auto;
-  min-height: 100%;
-  overflow-y: auto;
-}
 
-#lyricsPage {
-  overflow: visible;
-}
+/* ==========================================================================
+   STRUCTURE FIXE ET ANTI-SCROLL FANTÔME
+   ========================================================================== */
 
-#lyrics {
-  max-height: none;
-  overflow: visible;
-}
-/* --- NETTOYAGE ZONE FANTÔME ET SCROLL INFONDE --- */
 html, body {
-  overflow-x: hidden !important;
+  margin: 0;
+  padding: 0;
+  height: 100% !important;
+  overflow-x: hidden;
 }
 
-/* On s'assure que le mode karaoké s'arrête pile après la boîte de paroles */
+body {
+  background: #111827;
+  color: white;
+  font-family: Arial, sans-serif;
+}
+
+/* En mode karaoké, on interdit strictement à la page de déborder vers le bas */
 body.mode-karaoke {
-  min-height: 100vh !important;
-  height: auto !important;
+  height: 100vh !important;
+  max-height: 100vh !important;
+  overflow: hidden !important;
 }
 
 body.mode-karaoke #lyricsPage {
-  min-height: 0 !important;
-  height: auto !important;
-  padding-bottom: 60px !important; /* Laisse juste une marge propre sous la boîte */
+  height: 100vh !important;
+  max-height: 100vh !important;
+  overflow: hidden !important;
+  display: block;
 }
 
-#lyrics {
+/* La boîte grise possède sa hauteur calculée et son propre défilement interne */
+body.mode-karaoke #lyrics {
   white-space: pre-wrap;
   font-size: 2.3rem;
   line-height: 2.6rem;
   background: #1f2937;
-
   padding: 34px;
   border-radius: 22px;
-
-  margin-top: 24px;
-
+  margin: 24px auto;
   text-align: center;
-
-  height: calc(100vh - 260px);
-
-  overflow-y: auto;
+  height: calc(100vh - 260px) !important;
+  max-height: calc(100vh - 260px) !important;
+  overflow-y: auto !important; /* Le scroll se fait UNIQUEMENT ici */
 }
 
+/* --- BARRE DE CONTRÔLE (BOUTONS DE VITESSE) --- */
 #topBar {
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
   z-index: 1000;
-
   display: flex;
   gap: 8px;
   justify-content: center;
   flex-wrap: wrap;
-
   padding: 10px;
   background: rgba(17, 24, 39, 0.95);
   backdrop-filter: blur(10px);
 }
+
+#topBar button {
+  border: none;
+  padding: 12px 18px;
+  border-radius: 12px;
+  cursor: pointer;
+  color: white;
+  font-size: 1rem;
+}
+
+#scrollSlow { background: #2563eb; }
+#scrollMedium { background: #7c3aed; }
+#scrollFast { background: #dc2626; }
+#scrollStop { background: #374151; }
 
 #fullscreenBtn {
   background: #16a34a;
@@ -293,55 +301,17 @@ body.mode-karaoke #lyricsPage {
 #fullscreenBtn:hover {
   background: #15803d;
 }
-#topBar button {
-  border: none;
-  padding: 12px 18px;
-  border-radius: 12px;
-  cursor: pointer;
-  color: white;
-  font-size: 1rem;
-}
 
-#scrollSlow {
-  background: #2563eb;
-}
-
-#scrollMedium {
-  background: #7c3aed;
-}
-
-#scrollFast {
-  background: #dc2626;
-}
-
-#scrollStop {
-  background: #374151;
-}
-html,
-body {
-  overflow-y: auto !important;
-  height: auto !important;
-}
+/* --- CLASSE POUR LES REFRAINS --- */
 .refrain {
-
   color: #facc15;
-
   font-weight: bold;
-
   font-size: 1.15em;
-
   background: rgba(250, 204, 21, 0.12);
-
   border: 2px solid rgba(250, 204, 21, 0.5);
-
   border-radius: 22px;
-
   padding: 22px;
-
   margin: 32px auto;
-
   max-width: 92%;
-
   box-shadow: 0 0 18px rgba(250, 204, 21, 0.18);
-
 }
