@@ -9,7 +9,6 @@ body {
 h1 {
   text-align: center;
   font-size: 4.4rem;
-  margin-top: 90px;
   margin-bottom: 20px;
 }
 
@@ -91,7 +90,7 @@ h1 {
 /* PAGE PAROLES */
 
 #lyricsPage {
-  max-width: 1600px;
+  max-width: 950px;
   margin: auto;
   text-align: center;
 }
@@ -102,36 +101,32 @@ h1 {
 }
 
 #songArtist {
-  font-size: 1.8rem;
+  font-size: 1.3rem;
   color: #9ca3af;
   margin-top: 0;
 }
 
 #lyrics {
   white-space: pre-wrap;
-  font-size: 3.4rem;
-  line-height: 8rem;
+  font-size: 2.8rem;
+  line-height: 4.5rem;
   background: #1f2937;
   padding: 34px;
   border-radius: 22px;
   margin-top: 24px;
   text-align: center;
   overflow-y: auto;
-  max-width: 1700px;
-  width: 95%;
-  margin: 24px auto;
-  min-height: 80vh;
 }
 
 #backBtn {
   background: #2563eb;
   color: white;
   border: none;
-  padding: 25px 40px;
-  border-radius: 16px;
+  padding: 14px 24px;
+  border-radius: 12px;
   margin-bottom: 20px;
   cursor: pointer;
-  font-size: 1.8rem;
+  font-size: 1.1rem;
 }
 
 #backBtn:hover {
@@ -139,171 +134,211 @@ h1 {
 }
 
 /* SMARTPHONE */
-/* ==========================================================================
-   CONTRÔLE DU RENDU RESPONSIVE (PC, VIDÉOPROJECTEUR & SMARTPHONE)
-   ========================================================================== */
 
-/* --- RÈGLE GLOBALE : Cache le gros titre de l'accueil pendant la chanson --- */
-body.mode-karaoke > h1 {
-    display: none !important;
+@media (max-width: 700px) {
+  body {
+    padding: 12px;
+  }
+
+  h1 {
+    font-size: 1.8rem;
+  }
+
+  #search {
+    font-size: 1rem;
+    padding: 14px;
+    margin-bottom: 20px;
+  }
+
+  .toc-section {
+    padding: 12px;
+    border-radius: 14px;
+  }
+
+  .toc-section h2 {
+    font-size: 1.4rem;
+  }
+
+  .toc-table {
+    font-size: 0.9rem;
+  }
+
+  .toc-table th {
+    padding: 8px;
+  }
+
+  .toc-table td {
+    padding: 10px 6px;
+  }
+
+  .toc-table td:first-child {
+    width: 42px;
+  }
+
+  .toc-link {
+    font-size: 0.95rem;
+  }
+
+  #songTitle {
+    font-size: 1.7rem;
+  }
+
+  #songArtist {
+    font-size: 1.1rem;
+  }
+
+  #lyrics {
+    font-size: 1.35rem;
+    line-height: 2.1rem;
+    padding: 20px 14px;
+    border-radius: 16px;
+    text-align: center;
+  }
+
+  #backBtn {
+    width: 100%;
+    font-size: 1rem;
+  }
 }
 
-/* --- 1. DESIGN POUR LES GRANDS ÉCRANS (PC & VIDÉOPROJECTEUR) --- */
-@media (min-width: 769px) {
-    /* Bloque proprement le défilement de l'écran global tout à droite */
-    body.mode-karaoke {
-        margin: 0 !important;
-        padding: 0 !important;
-        height: 100vh !important;
-        max-height: 100vh !important;
-        overflow: hidden !important; 
-        display: flex !important;
-        flex-direction: column !important;
-    }
+/* TRÈS PETITS ÉCRANS */
 
-    /* Donne de l'air sous la barre de contrôle fixe du haut */
-    body.mode-karaoke #lyricsPage {
-        padding-top: 110px !important; 
-        display: flex !important;
-        flex-direction: column !important;
-        flex: 1 !important;
-        min-height: 0 !important;
-        box-sizing: border-box !important;
-    }
-
-    /* La boîte grise prend enfin toute la largeur sur PC, bien droite */
-    body.mode-karaoke #lyrics {
-        width: 95% !important;        
-        max-width: 1300px !important; 
-        margin: 15px auto !important; 
-        flex: 1 !important; /* Remplit l'écran proprement */
-        min-height: 0 !important;
-        overflow-y: auto !important;  /* Le scroll vertical propre s'active ici */
-        padding: 34px !important;
-        box-sizing: border-box !important;
-        display: block !important; 
-    }
-
-    /* Le bouton retour s'affiche normalement */
-    body.mode-karaoke #backBtn {
-        display: inline-block !important;
-        margin-bottom: 10px !important;
-    }
-}
-
-/* --- 2. DESIGN POUR LES SMARTPHONES (768px et moins) --- */
-@media (max-width: 768px) {
-    body {
-        padding: 12px;
-    }
-
-    h1 {
-        font-size: 1.8rem;
-        margin-top: 40px;
-    }
-
-    /* Autorise le scroll classique fluide avec le pouce sur mobile */
-    html, body {
-        overflow-y: auto !important; 
-        height: auto !important;
-        max-height: none !important;
-        min-height: 100vh !important;
-    }
-
-    body.mode-karaoke {
-        display: block !important;
-        height: auto !important;
-    }
-
-    /* Supprime l'espace des éléments invisibles de l'accueil en bas du tel */
-    body.mode-karaoke .container, 
-    body.mode-karaoke #search {
-        display: none !important;
-        height: 0 !important;
-        margin: 0 !important;
-        padding: 0 !important;
-    }
-
-    #lyricsPage {
-        height: auto !important;
-        max-height: none !important;
-        min-height: 0 !important;
-        padding-top: 130px !important; /* Laisse passer la topBar sur mobile */
-        padding-bottom: 40px !important;
-    }
-
-    /* La boîte s'adapte au texte sans scroll interne pénible sur smartphone */
-    body.mode-karaoke #lyrics {
-        font-size: 2.2rem;
-        line-height: 3.2rem;
-        padding: 20px 14px !important;
-        border-radius: 16px;
-        text-align: center;
-        width: 100% !important;      
-        height: auto !important;     
-        max-height: none !important;
-        overflow-y: visible !important; 
-        margin: 15px 0 0 0 !important;
-        box-sizing: border-box !important;
-    }
-
-    #backBtn {
-        width: 100%;
-        font-size: 1.2rem;
-        padding: 15px 20px;
-    }
-
-    #search {
-        font-size: 1.2rem;
-        padding: 14px;
-        margin-bottom: 20px;
-    }
-
-    .toc-section {
-        padding: 12px;
-        border-radius: 14px;
-    }
-
-    .toc-section h2 {
-        font-size: 1.4rem;
-    }
-
-    .toc-table {
-        font-size: 1rem;
-    }
-
-    .toc-table th {
-        padding: 8px;
-    }
-
-    .toc-table td {
-        padding: 10px 6px;
-    }
-
-    .toc-table td:first-child {
-        width: 42px;
-    }
-
-    .toc-link {
-        font-size: 1.1rem;
-    }
-
-    #songTitle {
-        font-size: 1.7rem;
-    }
-
-    #songArtist {
-        font-size: 1.1rem;
-    }
-}
-
-/* --- 3. TRÈS PETITS ÉCRANS --- */
 @media (max-width: 420px) {
-    body.mode-karaoke #lyrics {
-        font-size: 1.4rem;
-        line-height: 2.2rem;
-    }
-    .toc-link {
-        font-size: 1rem;
-    }
+  #lyrics {
+    font-size: 1.25rem;
+    line-height: 2rem;
+  }
+
+  .toc-link {
+    font-size: 0.9rem;
+  }
+}
+html,
+body {
+  height: auto;
+  min-height: 100%;
+  overflow-y: auto;
+}
+
+#lyricsPage {
+  overflow: visible;
+}
+
+#lyrics {
+  max-height: none;
+  overflow: visible;
+}
+html, body {
+  overflow-y: scroll !important;
+  height: auto !important;
+}
+
+body {
+  min-height: 200vh;
+}
+
+#lyricsPage {
+  display: block;
+  min-height: 200vh;
+}
+
+#lyrics {
+  white-space: pre-wrap;
+  font-size: 2.3rem;
+  line-height: 2.6rem;
+  background: #1f2937;
+
+  padding: 34px;
+  border-radius: 22px;
+
+  margin-top: 24px;
+
+  text-align: center;
+
+  height: calc(100vh - 260px);
+
+  overflow-y: auto;
+}
+
+#topBar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+  flex-wrap: wrap;
+
+  padding: 10px;
+  background: rgba(17, 24, 39, 0.95);
+  backdrop-filter: blur(10px);
+}
+
+#fullscreenBtn {
+  background: #16a34a;
+  color: white;
+  border: none;
+  padding: 14px 22px;
+  border-radius: 12px;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+#fullscreenBtn:hover {
+  background: #15803d;
+}
+#topBar button {
+  border: none;
+  padding: 12px 18px;
+  border-radius: 12px;
+  cursor: pointer;
+  color: white;
+  font-size: 1rem;
+}
+
+#scrollSlow {
+  background: #2563eb;
+}
+
+#scrollMedium {
+  background: #7c3aed;
+}
+
+#scrollFast {
+  background: #dc2626;
+}
+
+#scrollStop {
+  background: #374151;
+}
+html,
+body {
+  overflow-y: auto !important;
+  height: auto !important;
+}
+.refrain {
+
+  color: #facc15;
+
+  font-weight: bold;
+
+  font-size: 1.15em;
+
+  background: rgba(250, 204, 21, 0.12);
+
+  border: 2px solid rgba(250, 204, 21, 0.5);
+
+  border-radius: 22px;
+
+  padding: 22px;
+
+  margin: 32px auto;
+
+  max-width: 92%;
+
+  box-shadow: 0 0 18px rgba(250, 204, 21, 0.18);
+
 }
