@@ -228,18 +228,21 @@ body {
   max-height: none;
   overflow: visible;
 }
+/* --- NETTOYAGE ZONE FANTÔME ET SCROLL INFONDE --- */
 html, body {
-  overflow-y: scroll !important;
+  overflow-x: hidden !important;
+}
+
+/* On s'assure que le mode karaoké s'arrête pile après la boîte de paroles */
+body.mode-karaoke {
+  min-height: 100vh !important;
   height: auto !important;
 }
 
-body {
-  min-height: 200vh;
-}
-
-#lyricsPage {
-  display: block;
-  min-height: 200vh;
+body.mode-karaoke #lyricsPage {
+  min-height: 0 !important;
+  height: auto !important;
+  padding-bottom: 60px !important; /* Laisse juste une marge propre sous la boîte */
 }
 
 #lyrics {
