@@ -139,488 +139,171 @@ h1 {
 }
 
 /* SMARTPHONE */
+/* ==========================================================================
+   CONTRÔLE DU RENDU RESPONSIVE (PC, VIDÉOPROJECTEUR & SMARTPHONE)
+   ========================================================================== */
 
-/* ==========================================
-   DESIGN POUR LES GRANDS ÉCRANS (PC & VIDÉOPROJECTEUR)
-   ========================================== */
+/* --- RÈGLE GLOBALE : Cache le gros titre de l'accueil pendant la chanson --- */
+body.mode-karaoke > h1 {
+    display: none !important;
+}
+
+/* --- 1. DESIGN POUR LES GRANDS ÉCRANS (PC & VIDÉOPROJECTEUR) --- */
 @media (min-width: 769px) {
+    /* Bloque proprement le défilement de l'écran global tout à droite */
     body.mode-karaoke {
         margin: 0 !important;
         padding: 0 !important;
         height: 100vh !important;
         max-height: 100vh !important;
-        overflow: hidden !important; /* Bloque le scroll global tout à droite */
+        overflow: hidden !important; 
         display: flex !important;
         flex-direction: column !important;
     }
 
-    body.mode-karaoke #lyrics {
-        width: 95% !important;        /* FORCE la boîte à prendre toute la largeur PC */
-        max-width: 1300px !important; 
-        margin: 10px auto !important; 
-        flex: 1 !important;           /* Calcule la hauteur pour ne pas dépasser en bas */
-        min-height: 0 !important; 
-        overflow-y: auto !important;  /* Active le scroll propre uniquement ici */
-        padding: 20px !important;
+    /* Donne de l'air sous la barre de contrôle fixe du haut */
+    body.mode-karaoke #lyricsPage {
+        padding-top: 110px !important; 
+        display: flex !important;
+        flex-direction: column !important;
+        flex: 1 !important;
+        min-height: 0 !important;
         box-sizing: border-box !important;
     }
-}
 
-/* ==========================================
-   DESIGN POUR LES SMARTPHONES (Ton ancien bloc modifié)
-   ========================================== */
-@media (max-width: 700px) {
-  body {
-    padding: 12px;
-  }
-
-  h1 {
-    font-size: 1.8rem;
-  }
-
-  /* Correctif scroll infini smartphone */
-  html, body {
-    overflow-y: auto !important;
-    height: auto !important;
-    max-height: none !important;
-    min-height: 100vh !important;
-  }
-
-  #lyricsPage {
-    height: auto !important;
-    max-height: none !important;
-    min-height: 0 !important;
-    padding-bottom: 20px !important;
-    overflow: visible !important;
-  }
-
-  body.mode-karaoke {
-    display: block !important; 
-    height: auto !important;
-  }
-
-  body.mode-karaoke .container, 
-  body.mode-karaoke #search,
-  body.mode-karaoke footer, 
-  body.mode-karaoke .footer { 
-    display: none !important;
-    height: 0 !important;
-    margin: 0 !important;
-    padding: 0 !important;
-    visibility: hidden !important;
-  }
-
-  #search {
-    font-size: 1rem;
-    padding: 14px;
-    margin-bottom: 20px;
-  }
-
-  .toc-section {
-    padding: 12px;
-    border-radius: 14px;
-  }
-
-  .toc-section h2 {
-    font-size: 1.4rem;
-  }
-
-  .toc-table {
-    font-size: 0.9rem;
-  }
-
-  .toc-table th {
-    padding: 8px;
-  }
-
-  .toc-table td {
-    padding: 10px 6px;
-  }
-
-  .toc-table td:first-child {
-    width: 42px;
-  }
-
-  .toc-link {
-    font-size: 0.95rem;
-  }
-
-  #songTitle {
-    font-size: 1.7rem;
-  }
-
-  #songArtist {
-    font-size: 1.1rem;
-  }
-
-  #lyrics {
-    font-size: 2.5rem;
-    line-height: 3.5rem;
-    padding: 20px 14px !important;
-    border-radius: 16px;
-    text-align: center;
-    
-    width: 100% !important;      
-    height: auto !important;     
-    max-height: none !important;
-    overflow-y: visible !important; 
-    margin: 10px 0 0 0 !important;
-    box-sizing: border-box !important;
-  }
-
-  #backBtn {
-    width: 100%;
-    font-size: 1rem;
-  }
-  
-  #search {
-    font-size: 1rem;
-    padding: 14px;
-    margin-bottom: 20px;
-  }
-
-  .toc-section {
-    padding: 12px;
-    border-radius: 14px;
-  }
-
-  .toc-section h2 {
-    font-size: 1.4rem;
-  }
-
-  .toc-table {
-    font-size: 0.9rem;
-  }
-
-  .toc-table th {
-    padding: 8px;
-  }
-
-  .toc-table td {
-    padding: 10px 6px;
-  }
-
-  .toc-table td:first-child {
-    width: 42px;
-  }
-
-  .toc-link {
-    font-size: 0.95rem;
-  }
-
-  #songTitle {
-    font-size: 1.7rem;
-  }
-
-  #songArtist {
-    font-size: 1.1rem;
-  }
-
-  #lyrics {
-    font-size: 2.5rem;
-    line-height: 3.5rem;
-    padding: 20px 14px;
-    border-radius: 16px;
-    text-align: center;
-  }
-
-  #backBtn {
-    width: 100%;
-    font-size: 1rem;
-  }
-}
-
-/* TRÈS PETITS ÉCRANS */
-
-@media (max-width: 420px) {
-  #lyrics {
-    font-size: 1.25rem;
-    line-height: 2rem;
-  }
-
-  .toc-link {
-    font-size: 0.9rem;
-  }
-}
-html,
-body {
-  height: auto;
-  min-height: 100%;
-  overflow-y: auto;
-}
-
-#lyricsPage {
-  overflow: visible;
-}
-
-#lyrics {
-  max-height: none;
-  overflow: visible;
-}
-html, body {
-  overflow-y: scroll !important;
-  height: auto !important;
-}
-
-body {
-  min-height: 200vh;
-}
-
-#lyricsPage {
-  display: block;
-  min-height: 200vh;
-}
-
-#lyrics {
-  white-space: pre-wrap;
-  font-size: 2.3rem;
-  line-height: 2.6rem;
-  background: #1f2937;
-
-  padding: 34px;
-  border-radius: 22px;
-
-  margin-top: 24px;
-
-  text-align: center;
-
-  height: calc(100vh - 260px);
-
-  overflow-y: auto;
-}
-
-#topBar {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 1000;
-
-  display: flex;
-  gap: 8px;
-  justify-content: center;
-  flex-wrap: wrap;
-
-  padding: 20px;
-  background: rgba(17, 24, 39, 0.95);
-  backdrop-filter: blur(10px);
-}
-
-#fullscreenBtn {
-  background: #16a34a;
-  color: white;
-  border: none;
-  padding: 18px 30px;
-  border-radius: 12px;
-  cursor: pointer;
-  font-size: 1.3rem;
-}
-
-#fullscreenBtn:hover {
-  background: #15803d;
-}
-#topBar button {
-  border: none;
-  padding: 18px 30px;
-  border-radius: 12px;
-  cursor: pointer;
-  color: white;
-  font-size: 1.3rem;
-}
-
-#scrollSlow {
-  background: #2563eb;
-}
-
-#scrollMedium {
-  background: #7c3aed;
-}
-
-#scrollFast {
-  background: #dc2626;
-}
-
-#scrollStop {
-  background: #374151;
-}
-html,
-body {
-  overflow-y: auto !important;
-  height: auto !important;
-}
-.refrain {
-
-  color: #facc15;
-
-  font-weight: bold;
-
-  font-size: 1.15em;
-
-  background: rgba(250, 204, 21, 0.12);
-
-  border: 2px solid rgba(250, 204, 21, 0.5);
-
-  border-radius: 22px;
-
-  padding: 22px;
-
-  margin: 32px auto;
- 
-  max-width: 92%;
-
-  box-shadow: 0 0 18px rgba(250, 204, 21, 0.18);
-
-}
-body.projector-lowres {
-  padding: 8px;
-}
-
-body.projector-lowres h1 {
-  font-size: 1.6rem;
-}
-
-body.projector-lowres #lyricsPage {
-  max-width: 100%;
-}
-
-body.projector-lowres #lyrics {
-  font-size: 2.1rem;
-  line-height: 2.8rem;
-  padding: 18px;
-  border-radius: 12px;
-  width: 96%;
-  min-height: 65vh;
-}
-
-body.projector-lowres #songTitle {
-  font-size: 1.8rem;
-}
-
-body.projector-lowres #songArtist {
-  font-size: 1rem;
-}
-
-body.projector-lowres #backBtn,
-body.projector-lowres .speed-btn,
-body.projector-lowres #fullscreenBtn {
-  padding: 10px 16px;
-  font-size: 1rem;
-}
-#lyricsPage {
-  position: relative;
-}
-
-#lyricsHeader {
-  position: sticky;
-  top: 0;
-  z-index: 2000;
-
-  background: rgba(17, 24, 39, 0.96);
-  backdrop-filter: blur(10px);
-
-  padding: 10px 0 20px;
-}
-#lyricsHeader {
-  position: sticky;
-  top: 0;
-  z-index: 2000;
-  background: rgba(17, 24, 39, 0.96);
-  backdrop-filter: blur(10px);
-  padding: 10px 0 16px;
-}
-/* 1. Cette règle ne s'appliquera QUE si la page a la classe 'mode-karaoke' */
-body.mode-karaoke {
-    margin: 0 !important;
-    padding: 0 !important;
-    height: 100vh !important;
-    max-height: 100vh !important;
-    overflow: hidden !important; /* Bloque le scroll de droite */
-    display: flex !important;
-    flex-direction: column !important;
-}
-
-/* 2. On applique les réglages à la boîte de paroles */
-body.mode-karaoke #lyrics {
-    width: 95% !important;        /* Grande largeur sur PC et vidéoprojecteur */
-    max-width: 1300px !important; 
-    margin: 10px auto !important; 
-    
-    flex: 1 !important;           /* Prend toute la hauteur restante automatiquement */
-    min-height: 0 !important; 
-    
-    overflow-y: auto !important;  /* Active le scroll UNIQUEMENT ici */
-    padding: 20px !important;
-    box-sizing: border-box !important;
-}
-/* ==========================================
-   DESIGN POUR LES GRANDS ÉCRANS (PC & VIDÉOPROJECTEUR)
-   S'applique uniquement si l'écran fait plus de 768px de large
-   ========================================== */
-@media (min-width: 769px) {
-    body.mode-karaoke {
-        margin: 0 !important;
-        padding: 0 !important;
-        height: 100vh !important;
-        max-height: 100vh !important;
-        overflow: hidden !important; /* Bloque le scroll de droite sur PC */
-        display: flex !important;
-        flex-direction: column !important;
-    }
-
+    /* La boîte grise prend enfin toute la largeur sur PC, bien droite */
     body.mode-karaoke #lyrics {
         width: 95% !important;        
         max-width: 1300px !important; 
-        margin: 10px auto !important; 
-        flex: 1 !important;           /* Hauteur automatique sur PC */
-        min-height: 0 !important; 
-        overflow-y: auto !important;  /* Le scroll interne n'existe que sur PC */
-        padding: 20px !important;
+        margin: 15px auto !important; 
+        flex: 1 !important; /* Remplit l'écran proprement */
+        min-height: 0 !important;
+        overflow-y: auto !important;  /* Le scroll vertical propre s'active ici */
+        padding: 34px !important;
         box-sizing: border-box !important;
+        display: block !important; 
+    }
+
+    /* Le bouton retour s'affiche normalement */
+    body.mode-karaoke #backBtn {
+        display: inline-block !important;
+        margin-bottom: 10px !important;
     }
 }
 
-/* ==========================================
-   DESIGN POUR LES SMARTPHONES
-   S'applique uniquement si l'écran est petit (768px ou moins)
-   ========================================== */
+/* --- 2. DESIGN POUR LES SMARTPHONES (768px et moins) --- */
 @media (max-width: 768px) {
-    body.mode-karaoke {
-        display: block !important;
-        height: auto !important;
+    body {
+        padding: 12px;
     }
 
-    /* Supprime le scroll infini et autorise le défilement normal au pouce */
+    h1 {
+        font-size: 1.8rem;
+        margin-top: 40px;
+    }
+
+    /* Autorise le scroll classique fluide avec le pouce sur mobile */
     html, body {
-        overflow-y: auto !important;
+        overflow-y: auto !important; 
         height: auto !important;
         max-height: none !important;
         min-height: 100vh !important;
     }
 
-    /* Empêche la page de chant de créer du vide en bas */
-    #lyricsPage {
+    body.mode-karaoke {
+        display: block !important;
         height: auto !important;
-        max-height: none !important;
-        min-height: 0 !important;
-        padding-bottom: 30px !important;
     }
 
-    /* La boîte des paroles prend toute la largeur du smartphone et s'allonge verticalement */
-    body.mode-karaoke #lyrics {
-        width: 100% !important;      
-        height: auto !important;     
-        max-height: none !important;
-        overflow-y: visible !important; 
-        margin-top: 15px !important;
-        box-sizing: border-box !important;
-    }
-
-    /* Nettoie et masque de force les éléments de l'accueil cachés pour éviter l'espace vide fantôme */
+    /* Supprime l'espace des éléments invisibles de l'accueil en bas du tel */
     body.mode-karaoke .container, 
     body.mode-karaoke #search {
         display: none !important;
         height: 0 !important;
         margin: 0 !important;
         padding: 0 !important;
+    }
+
+    #lyricsPage {
+        height: auto !important;
+        max-height: none !important;
+        min-height: 0 !important;
+        padding-top: 130px !important; /* Laisse passer la topBar sur mobile */
+        padding-bottom: 40px !important;
+    }
+
+    /* La boîte s'adapte au texte sans scroll interne pénible sur smartphone */
+    body.mode-karaoke #lyrics {
+        font-size: 2.2rem;
+        line-height: 3.2rem;
+        padding: 20px 14px !important;
+        border-radius: 16px;
+        text-align: center;
+        width: 100% !important;      
+        height: auto !important;     
+        max-height: none !important;
+        overflow-y: visible !important; 
+        margin: 15px 0 0 0 !important;
+        box-sizing: border-box !important;
+    }
+
+    #backBtn {
+        width: 100%;
+        font-size: 1.2rem;
+        padding: 15px 20px;
+    }
+
+    #search {
+        font-size: 1.2rem;
+        padding: 14px;
+        margin-bottom: 20px;
+    }
+
+    .toc-section {
+        padding: 12px;
+        border-radius: 14px;
+    }
+
+    .toc-section h2 {
+        font-size: 1.4rem;
+    }
+
+    .toc-table {
+        font-size: 1rem;
+    }
+
+    .toc-table th {
+        padding: 8px;
+    }
+
+    .toc-table td {
+        padding: 10px 6px;
+    }
+
+    .toc-table td:first-child {
+        width: 42px;
+    }
+
+    .toc-link {
+        font-size: 1.1rem;
+    }
+
+    #songTitle {
+        font-size: 1.7rem;
+    }
+
+    #songArtist {
+        font-size: 1.1rem;
+    }
+}
+
+/* --- 3. TRÈS PETITS ÉCRANS --- */
+@media (max-width: 420px) {
+    body.mode-karaoke #lyrics {
+        font-size: 1.4rem;
+        line-height: 2.2rem;
+    }
+    .toc-link {
+        font-size: 1rem;
     }
 }
