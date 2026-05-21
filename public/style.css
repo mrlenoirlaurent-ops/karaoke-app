@@ -233,15 +233,6 @@ html, body {
   height: auto !important;
 }
 
-body {
-  min-height: 200vh;
-}
-
-#lyricsPage {
-  display: block;
-  min-height: 200vh;
-}
-
 #lyrics {
   white-space: pre-wrap;
   font-size: 2.3rem;
